@@ -9,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.PhotoSize;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -58,7 +57,7 @@ public class Bot extends TelegramLongPollingBot {
                 try {
                     int xSize = Integer.parseInt(update.getMessage().getText());
                     PrintWriter writer = new PrintWriter("temp/" + chatID + "/txtT.txt", StandardCharsets.UTF_8);
-                    writer.print(createTxtImg(image, xSize));
+                    writer.print(createTxtImg(image, xSize/2));
                     writer.close();
 
                     SendDocument document = new SendDocument();
@@ -98,7 +97,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private synchronized StringBuilder createTxtImg(BufferedImage originalImage, int xSize) {
         StringBuilder sb = new StringBuilder();
-        char[] ch = {'M', 'W', 'H', '#', '%', 'X', 'D', '8', 'A', '4', 'w', 'p', '0',
+        char[] ch = {'▒', 'M', 'W', 'H', '#', '%', 'X', 'D', '8', 'A', '4', 'w', 'p', '0',
                 '0', '3', 'u', '?', '7', 'i', '{', '+', 't', 'c', '!', '<', '"', '~',
                 ':', ',', '^', '.', '`', ' '};
 
