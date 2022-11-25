@@ -23,7 +23,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername () {
-        return "TesttEdubot";
+        return "";
     }
 
     @Override
@@ -113,18 +113,6 @@ public class Bot extends TelegramLongPollingBot {
         return sb;
     }
 
-/*
-    private synchronized BufferedImage rgbToBlackAndWhite (BufferedImage originalImage) {
-        BufferedImage blackAndWhiteImg = new BufferedImage(
-                originalImage.getWidth(), originalImage.getHeight(),
-                BufferedImage.TYPE_BYTE_GRAY);
-
-        Graphics2D graphics = blackAndWhiteImg.createGraphics();
-        graphics.drawImage(originalImage, 0, 0, null);
-        return blackAndWhiteImg;
-    }
-*/
-
     private synchronized BufferedImage resize (BufferedImage originalImage, int xSize) {
         float ySize = originalImage.getHeight()*((float) xSize/originalImage.getWidth());
         BufferedImage resizedImg = new BufferedImage(
@@ -136,4 +124,14 @@ public class Bot extends TelegramLongPollingBot {
         return resizedImg;
     }
 
+    @Deprecated (forRemoval = true)
+    private synchronized BufferedImage rgbToBlackAndWhite (BufferedImage originalImage) {
+        BufferedImage blackAndWhiteImg = new BufferedImage(
+                originalImage.getWidth(), originalImage.getHeight(),
+                BufferedImage.TYPE_BYTE_GRAY);
+
+        Graphics2D graphics = blackAndWhiteImg.createGraphics();
+        graphics.drawImage(originalImage, 0, 0, null);
+        return blackAndWhiteImg;
+    }
 }
